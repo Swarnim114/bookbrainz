@@ -21,16 +21,16 @@
 
 import * as bootstrap from 'react-bootstrap';
 
-import { faCircle, faCommentDots, faComments, faEnvelope, faListUl, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import {faCircle, faCommentDots, faComments, faEnvelope, faListUl, faSearch, faUser} from '@fortawesome/free-solid-svg-icons';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
 import RevisionsTable from './parts/revisions-table';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import {faTwitter} from '@fortawesome/free-brands-svg-icons';
 
 
-const { Alert, Button, Col, Container, Row } = bootstrap;
+const {Alert, Button, Col, Container, Row} = bootstrap;
 
 class IndexPage extends React.Component {
 	constructor(props) {
@@ -61,12 +61,12 @@ class IndexPage extends React.Component {
 								width="500"
 							/>
 							<Row>
-								<Col lg={{ offset: 2, span: 8 }}>
+								<Col lg={{offset: 2, span: 8}}>
 									<form action="/search" className="input-group input-group-lg margin-top-5" role="search">
 										<input
 											required
 											autoFocus="autofocus"
-											className="form-control"
+											className={`form-control ${this.props.darkMode ? 'dark-mode' : ''}`}
 											name="q"
 											placeholder="Search for..."
 											type="text"
@@ -76,7 +76,7 @@ class IndexPage extends React.Component {
 												type="submit"
 												variant="success"
 											>
-												<FontAwesomeIcon icon={faSearch} />
+												<FontAwesomeIcon icon={faSearch}/>
 											</Button>
 										</span>
 									</form>
@@ -189,7 +189,7 @@ class IndexPage extends React.Component {
 		return (
 			<Container>
 				<Row>
-					<Col lg={{ offset: 2, span: 8 }}>
+					<Col lg={{offset: 2, span: 8}}>
 						<h1 className="text-center">The Open Book Database</h1>
 						<p className="lead text-justify">
 							BookBrainz is a project to create an online database
@@ -203,7 +203,7 @@ class IndexPage extends React.Component {
 						</p>
 					</Col>
 				</Row>
-				<hr />
+				<hr/>
 				{!this.props.isLoggedIn && this.renderAboutUs()}
 				<div>
 					<RevisionsTable
@@ -216,7 +216,7 @@ class IndexPage extends React.Component {
 							href="/revisions"
 							variant="primary"
 						>
-							<FontAwesomeIcon className="margin-right-0-5" icon={faListUl} />
+							<FontAwesomeIcon className="margin-right-0-5" icon={faListUl}/>
 							See all revisions
 						</Button>
 					</div>
@@ -226,25 +226,25 @@ class IndexPage extends React.Component {
 	}
 
 	renderAboutUs() {
-		const disableSignUp = this.props.disableSignUp ? { disabled: true } : {};
+		const disableSignUp = this.props.disableSignUp ? {disabled: true} : {};
 		return (
 			<React.Fragment>
 				<Row>
 					<Col className="text-center margin-top-4" lg={2}>
-						<FontAwesomeIcon icon={faUser} size="5x" />
+						<FontAwesomeIcon icon={faUser} size="5x"/>
 					</Col>
 					<Col lg={10}>
 						<h2>Join Us!</h2>
 						<p className="lead">
-							First off,{' '}
+					First off,{' '}
 							<a href="/about" target="blank">
-								read about us
+						read about us
 							</a>{' and '}
 							<a href="/contribute" target="blank">
-								how you can help
+						how you can help
 							</a>. Then, if you think you want
-							to stick around, hit the button below to sign up
-							for a free BookBrainz account!
+					to stick around, hit the button below to sign up
+					for a free BookBrainz account!
 						</p>
 					</Col>
 				</Row>
@@ -255,7 +255,7 @@ class IndexPage extends React.Component {
 						size="lg"
 						variant="success"
 					>
-						Register!
+				Register!
 					</Button>
 				</div>
 			</React.Fragment>
@@ -264,7 +264,7 @@ class IndexPage extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className={this.props.darkMode ? 'dark-mode' : ''}>
 				{this.renderHeader()}
 				{this.renderContent()}
 			</div>
@@ -274,6 +274,7 @@ class IndexPage extends React.Component {
 
 IndexPage.displayName = 'IndexPage';
 IndexPage.propTypes = {
+	darkMode: PropTypes.bool.isRequired,
 	disableSignUp: PropTypes.bool,
 	isLoggedIn: PropTypes.bool.isRequired,
 	recent: PropTypes.array.isRequired,

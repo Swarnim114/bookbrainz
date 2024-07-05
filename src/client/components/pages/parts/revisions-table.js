@@ -18,24 +18,24 @@
 
 import * as bootstrap from 'react-bootstrap';
 import * as utilsHelper from '../../../helpers/utils';
-import { genEntityIconHTMLElement, getEntityLabel, getEntityUrl } from '../../../helpers/entity';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {genEntityIconHTMLElement, getEntityLabel, getEntityUrl} from '../../../helpers/entity';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import {faCodeBranch} from '@fortawesome/free-solid-svg-icons';
 
 
-const { Table } = bootstrap;
-const { formatDate, stringToHTMLWithLinks } = utilsHelper;
+const {Table} = bootstrap;
+const {formatDate, stringToHTMLWithLinks} = utilsHelper;
 
 function RevisionsTable(props) {
-	const { results, showEntities, showRevisionNote, showRevisionEditor, tableHeading } = props;
+	const {results, showEntities, showRevisionNote, showRevisionEditor, tableHeading} = props;
 	return (
 		<div>
 			<div>
 				<h1 className="text-center">{tableHeading}</h1>
 			</div>
-			<hr className="thin" />
+			<hr className="thin"/>
 			{
 				results.length > 0 ?
 					<Table
@@ -75,7 +75,7 @@ function RevisionsTable(props) {
 												{revision.isMerge &&
 													<span
 														className="round-color-icon"
-														style={{ marginLeft: '0.5em' }}
+														style={{marginLeft: '0.5em'}}
 													>
 														<FontAwesomeIcon
 															flip="vertical" icon={faCodeBranch}
@@ -135,7 +135,7 @@ function RevisionsTable(props) {
 
 					<div>
 						<h4> No revisions to show</h4>
-						<hr className="wide" />
+						<hr className="wide"/>
 					</div>
 			}
 		</div>
