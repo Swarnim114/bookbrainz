@@ -42,14 +42,14 @@ class IndexPage extends React.Component {
 	renderHeader() {
 		return (
 			<div>
-				<Alert className="text-center" variant="warning">
+				{/* <Alert className="text-center" variant="warning">
 					Under development — adventurous users, please test and
 					add data! Give us feedback about bugs, glitches and
 					potential improvements at {' '}
 					<a href="//tickets.metabrainz.org/projects/BB">
 						MetaBrainz JIRA!
 					</a>
-				</Alert>
+				</Alert> */}
 				<div id="background-image">
 					<div className="text-center" id="background-overlay">
 						<Container>
